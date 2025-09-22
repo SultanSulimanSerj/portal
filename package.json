@@ -1,0 +1,40 @@
+{
+  "name": "saas-project-portal",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Multi-tenant SaaS portal for managing company projects",
+  "packageManager": "pnpm@8.15.6",
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "test:e2e": "turbo run test:e2e",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "generate:sdk": "turbo run generate:sdk",
+    "prepare": "husky install",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "turbo run build --filter=packages/* && changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.1",
+    "@types/node": "^20.11.24",
+    "eslint": "^8.57.0",
+    "eslint-config-custom": "*",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
+    "typescript": "^5.3.3",
+    "turbo": "^1.12.5"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=18.17.0",
+    "pnpm": ">=8.0.0"
+  }
+}
